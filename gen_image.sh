@@ -17,10 +17,13 @@ echo "Converting $INPUT -> 432x432, replacing white bg with #0a0010..."
 
 magick "$INPUT" \
     -filter point \
-    -scale 432x432 \
+    -resize 432x432 \
     -fuzz 20% \
     -fill '#0a0010' \
     -opaque white \
+    -background '#0a0010' \
+    -gravity center \
+    -extent 432x432 \
     -type TrueColor \
     -depth 8 \
     "RGB:$TMP"
